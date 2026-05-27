@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoVision Pro | Criptomonedas, Inversiones y Guías Financieras</title>
+    <meta name="description" content="Aprende a invertir en criptomonedas con CryptoVision Pro. Análisis de mercado, guías paso a paso para principiantes, comparativas de exchanges y herramientas en vivo gratis.">
+    <meta name="keywords" content="criptomonedas, bitcoin, invertir en crypto, comprar bitcoin, blockchain, finanzas, guias cripto">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cryptovision.pro/">
+    <meta property="og:title" content="CryptoVision Pro | Criptomonedas e Inversiones Inteligentes">
+    <meta property="og:description" content="Domina el dinero del futuro. Guías gratuitas sobre Bitcoin, Ethereum y estrategias de inversión financiera optimizadas para maximizar tus retornos.">
+    <meta property="og:image" content="https://cryptovision.pro/img/og-main.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="CryptoVision Pro | Criptomonedas e Inversiones Inteligentes">
+    <meta property="twitter:description" content="Domina el dinero del futuro. Guías gratuitas sobre Bitcoin, Ethereum y estrategias de inversión financiera optimizadas para maximizar tus retornos.">
+    
+    <!-- Favicon y Estilos -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪙</text></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Chart.js CDN (Asíncrono y seguro) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</head>
+<body>
+
+    <!-- AD BLOCK: Header Leaderboard (728x90px) -->
+    <div class="header-ad-wrap" style="max-width:1200px; margin:1rem auto 0; padding:0 1.5rem;">
+        <div class="adsense-placeholder ads-leaderboard">
+            <div class="ads-text">Anuncio de Google AdSense Leaderboard (728x90px)</div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo" id="headerLogo">
+                <div class="logo-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v12M12 6C9 6 8 8 8 10s1 4 4 4 4 2 4 4-1 4-4 4"></path>
+                    </svg>
+                </div>
+                <span>CryptoVision</span>Pro
+            </a>
+            
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" class="nav-link active" id="navHome">Inicio</a>
+                <a href="categorias.html" class="nav-link" id="navCrypto">Criptomonedas</a>
+                <a href="categorias.html" class="nav-link" id="navInvest">Inversiones</a>
+                <a href="categorias.html" class="nav-link" id="navGuides">Guías</a>
+                <a href="sobre-nosotros.html" class="nav-link" id="navAbout">Nosotros</a>
+            </nav>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- REAL-TIME PRICE TICKER -->
+    <section class="ticker-section" aria-label="Cotizaciones en vivo">
+        <div class="ticker-container">
+            <div class="ticker-title">
+                Mercado Vivo
+            </div>
+            <div class="ticker-wrap">
+                <div class="ticker-track" id="tickerTrack">
+                    <!-- Dinámico con JS -->
+                    <div class="ticker-item"><span class="ticker-symbol">Cargando cotizaciones...</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tag">Aprende Gratis desde Cero</span>
+                <h1 class="hero-title">¿Sabes realmente cómo funciona el <span>dinero del futuro?</span></h1>
+                <p class="hero-subtitle">La revolución financiera ya está aquí. Miles de personas ya están multiplicando su capital con criptomonedas. Descubre el método exacto y protege tus ahorros hoy mismo.</p>
+                <div class="hero-buttons">
+                    <a href="#guiasPrincipiantes" class="btn btn-primary" id="btnHeroCta">Empieza a aprender gratis</a>
+                    <a href="#calculadoraInversion" class="btn btn-secondary" id="btnHeroCalc">Proyectar Ganancias</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-card-title">
+                            <span style="font-size:1.25rem">📊</span> Cotizaciones en Vivo
+                        </div>
+                        <span class="live-badge">Seguro</span>
+                    </div>
+                    <div class="hero-crypto-ticker" id="heroCryptoList">
+                        <!-- Dinámico con JS -->
+                        <div style="text-align:center; padding:1.5rem; color:var(--text-secondary)">Cargando mercado...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN WRAPPER (Articles Feed + Sidebar Grid) -->
+    <div class="main-wrapper">
+        <main class="main-content">
+            
+            <!-- DESTACADOS SECTION -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2 class="section-title">Artículos Destacados</h2>
+                    <a href="categorias.html" class="section-link">Ver todo</a>
+                </div>
+                
+                <div class="articles-grid">
+                    
+                    <!-- Article 1: Qué es Bitcoin (Informational) -->
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22 style=%22background:%23111c2a%22><text x=%2250%25%22 y=%2250%25%22 fill=%22%23ffd700%22 font-family=%22sans-serif%22 font-size=%2224%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>¿Qué es Bitcoin?</text></svg>" alt="Bitcoin moneda física dorada brillante" class="article-image" loading="lazy">
+                            <span class="article-badge">Guías</span>
+                        </div>
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span>📅 2026-05-26</span>
+                                <span>👁️ 15,230 vistas</span>
+                            </div>
+                            <h3 class="article-card-title"><a href="que-es-bitcoin.html">Qué es Bitcoin y cómo funciona realmente: La guía definitiva sin rodeos</a></h3>
+                            <p class="article-excerpt">¿Es Bitcoin el oro digital o una burbuja especulativa? Desmitificamos la primera criptomoneda del mundo con conceptos claros que cualquiera puede entender.</p>
+                            <a href="que-es-bitcoin.html" class="article-read-more">Aprender más 
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2: Cómo comprar criptomonedas (Transactional) -->
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22 style=%22background:%2311222c%22><text x=%2250%25%22 y=%2250%25%22 fill=%22%2300d4ff%22 font-family=%22sans-serif%22 font-size=%2224%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>Compra Cripto Paso a Paso</text></svg>" alt="Celular móvil con gráfica alcista de trading de criptomonedas" class="article-image" loading="lazy">
+                            <span class="article-badge">Tutoriales</span>
+                        </div>
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span>📅 2026-05-24</span>
+                                <span>👁️ 8,420 vistas</span>
+                            </div>
+                            <h3 class="article-card-title"><a href="como-comprar-criptomonedas.html">Cómo comprar criptomonedas desde cero de forma 100% segura en 2026</a></h3>
+                            <p class="article-excerpt">Evita caer en estafas. Te enseñamos los pasos exactos y validados para registrarte, asegurar y comprar tus primeras criptomonedas sin comisiones ocultas.</p>
+                            <a href="como-comprar-criptomonedas.html" class="article-read-more">Ver tutorial 
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3: Clickbait de valor / Lista (Trend) -->
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22 style=%22background:%231f1816%22><text x=%2250%25%22 y=%2250%25%22 fill=%22%23f6465d%22 font-family=%22sans-serif%22 font-size=%2224%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>5 Errores Fatales en Crypto</text></svg>" alt="Inversor frustrado viendo gráficos rojos bajistas en su ordenador" class="article-image" loading="lazy">
+                            <span class="article-badge">Inversiones</span>
+                        </div>
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span>📅 2026-05-22</span>
+                                <span>👁️ 18,920 vistas</span>
+                            </div>
+                            <h3 class="article-card-title"><a href="categorias.html">5 errores que te hacen perder dinero en cripto (y el 85% los comete)</a></h3>
+                            <p class="article-excerpt">El trading no es azar. Si sigues cometiendo estas faltas de novato, estás entregando tu dinero a las ballenas. Aprende a protegerte inmediatamente.</p>
+                            <a href="categorias.html" class="article-read-more">Proteger mi dinero 
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 4: Clickbait del año 2026 (Trend/Daily) -->
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22 style=%22background:%231d1d11%22><text x=%2250%25%22 y=%2250%25%22 fill=%22%23ffd700%22 font-family=%22sans-serif%22 font-size=%2224%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>¿Qué pasará en 2026?</text></svg>" alt="Gráfico gigante futurista de Bitcoin proyectando subida alcista en 2026" class="article-image" loading="lazy">
+                            <span class="article-badge">Tendencias</span>
+                        </div>
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span>📅 2026-05-20</span>
+                                <span>👁️ 24,105 vistas</span>
+                            </div>
+                            <h3 class="article-card-title"><a href="categorias.html">¿Qué pasará con Bitcoin en 2026? Lo que los expertos callan y no quieren revelar</a></h3>
+                            <p class="article-excerpt">Las predicciones matemáticas y macroeconómicas para el próximo ciclo. Descubre si de verdad podrías jubilarte anticipadamente en el próximo rally alcista.</p>
+                            <a href="categorias.html" class="article-read-more">Ver predicción 
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- AD BLOCK: Home In-feed Ad (336x280px) -->
+            <div class="adsense-placeholder ads-large-rectangle">
+                <div class="ads-text">Anuncio AdSense (336x280px) - Altamente Rentable en Home Feed</div>
+            </div>
+
+            <!-- GUÍA PARA PRINCIPIANTES SECTION -->
+            <section class="guide-section" id="guiasPrincipiantes">
+                <div class="section-header" style="border-left-color: var(--accent-blue)">
+                    <h2 class="section-title">Ruta de Aprendizaje Acelerada</h2>
+                </div>
+                <p style="color:var(--text-secondary)">Sigue estos tres sencillos pasos para entrar al ecosistema cripto sin cometer errores de novato.</p>
+                
+                <div class="guide-steps">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <h3 class="step-title">Comprende la Base</h3>
+                        <p class="step-text">Entiende qué es Blockchain, el sistema tecnológico y descentralizado que hace que Bitcoin sea inmutable e incorruptible.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <h3 class="step-title">Elige un Exchange Seguro</h3>
+                        <p class="step-text">Compara plataformas globales reguladas con bajas comisiones para adquirir tus criptomonedas de forma rápida y sencilla.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <h3 class="step-title">Almacena sin Riesgos</h3>
+                        <p class="step-text">Aprende a retirar tus monedas a una cartera privada (Cold Wallet) para tener el control total de tus llaves y de tu dinero.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPARATIVA DE EXCHANGES -->
+            <section class="comparison-section">
+                <div class="section-header">
+                    <h2 class="section-title">Los Mejores Exchanges de Criptomonedas 2026</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Exchange</th>
+                                <th>Calificación</th>
+                                <th>Comisiones</th>
+                                <th>Depósito Mínimo</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="exchange-logo">
+                                        <div style="width:24px; height:24px; border-radius:50%; background:#f3ba2f; display:flex; align-items:center; justify-content:center; color:#000; font-size:0.7rem; font-weight:800;">B</div>
+                                        Binance
+                                    </div>
+                                </td>
+                                <td><span class="rating-badge">★ 4.9</span>/5.0</td>
+                                <td>Desde 0.10%</td>
+                                <td>$10 USD</td>
+                                <td><a href="como-comprar-criptomonedas.html" class="btn-table">Comprar</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="exchange-logo">
+                                        <div style="width:24px; height:24px; border-radius:50%; background:#0052ff; display:flex; align-items:center; justify-content:center; color:#fff; font-size:0.7rem; font-weight:800;">C</div>
+                                        Coinbase Pro
+                                    </div>
+                                </td>
+                                <td><span class="rating-badge">★ 4.7</span>/5.0</td>
+                                <td>Desde 0.40%</td>
+                                <td>$2 USD</td>
+                                <td><a href="como-comprar-criptomonedas.html" class="btn-table">Comprar</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="exchange-logo">
+                                        <div style="width:24px; height:24px; border-radius:50%; background:#512da8; display:flex; align-items:center; justify-content:center; color:#fff; font-size:0.7rem; font-weight:800;">K</div>
+                                        Kraken
+                                    </div>
+                                </td>
+                                <td><span class="rating-badge">★ 4.6</span>/5.0</td>
+                                <td>Desde 0.20%</td>
+                                <td>$1 USD</td>
+                                <td><a href="como-comprar-criptomonedas.html" class="btn-table">Comprar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- CALCULADORA INTERACTIVA -->
+            <section class="calculator-section" id="calculadoraInversion">
+                <div class="section-header" style="border-left-color: var(--accent-blue)">
+                    <h2 class="section-title">Calculadora Proyectiva de Inversión</h2>
+                </div>
+                <p style="color:var(--text-secondary)">Calcula el potencial de tu portafolio estimando el crecimiento compuesto con diferentes perfiles de activos.</p>
+                
+                <div class="calc-grid">
+                    <form class="calc-form" onsubmit="event.preventDefault();">
+                        <div class="input-group">
+                            <label for="calcAmount">Monto a Invertir (USD)</label>
+                            <input type="number" id="calcAmount" value="1000" min="10" step="50">
+                        </div>
+                        <div class="input-group">
+                            <label for="calcCrypto">Criptomoneda Objetivo</label>
+                            <select id="calcCrypto">
+                                <option value="bitcoin" selected>Bitcoin (BTC)</option>
+                                <option value="ethereum">Ethereum (ETH)</option>
+                                <option value="solana">Solana (SOL)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="calcStrategy">Perfil / Estrategia de Crecimiento</label>
+                            <select id="calcStrategy">
+                                <option value="0.10">Conservador (10% anual compuesto)</option>
+                                <option value="0.25" selected>Moderado / Histórico (25% anual compuesto)</option>
+                                <option value="0.55">Agresivo / Rally Alcista (55% anual compuesto)</option>
+                                <option value="1.00">Especulativo Máximo (100% anual compuesto)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="calcYears">Plazo de Retención (Años)</label>
+                            <select id="calcYears">
+                                <option value="1">1 Año</option>
+                                <option value="2">2 Años</option>
+                                <option value="3" selected>3 Años</option>
+                                <option value="4">4 Años</option>
+                                <option value="5">5 Años</option>
+                            </select>
+                        </div>
+                        
+                        <div class="calc-result-box">
+                            <div class="calc-result-row">
+                                <span>Capital inicial:</span>
+                                <span id="resultInitial" style="font-weight:600">$1,000</span>
+                            </div>
+                            <div class="calc-result-row">
+                                <span>Retorno neto estimado:</span>
+                                <span id="resultProfit" class="calc-result-value change-up">+$953</span>
+                            </div>
+                            <div class="calc-result-row" style="font-size: 1.05rem; font-weight:700">
+                                <span>Valor Final Proyectado:</span>
+                                <span id="resultTotal" class="calc-result-value" style="color:var(--accent-blue)">$1,953</span>
+                            </div>
+                            <div class="calc-result-row" style="font-size:0.75rem">
+                                <span>Multiplicador de inversión:</span>
+                                <span id="resultMultiplier" style="color:var(--accent-gold); font-weight:700">1.95x</span>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <div class="calc-chart-container">
+                        <canvas id="investmentChartCanvas" style="max-height:280px"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GLOSARIO CRIPTO DE COLA LARGA (SEO Booster) -->
+            <section class="glossary-section">
+                <div class="section-header">
+                    <h2 class="section-title">Glosario Financiero Crypto</h2>
+                </div>
+                <p style="color:var(--text-secondary)">¿Perdido entre la jerga de los inversores? Domina los conceptos clave de manera instantánea y busca términos específicos de la Web3.</p>
+                
+                <div class="glossary-search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="glossarySearch" placeholder="Busca un concepto (ej: Halving, Wallet, Altcoin, FOMO)...">
+                </div>
+                
+                <div class="glossary-list" id="glossaryList">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Halving</div>
+                        <div class="glossary-def">Evento programado en el protocolo de Bitcoin que ocurre aproximadamente cada 4 años, el cual reduce a la mitad la recompensa que reciben los mineros por bloque creado, limitando la oferta circulante.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Cold Wallet</div>
+                        <div class="glossary-def">Cartera de hardware física para criptomonedas que mantiene las claves privadas completamente desconectadas de internet (fuera de línea), garantizando la máxima seguridad posible contra ciberataques.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">FOMO</div>
+                        <div class="glossary-def">Siglas en inglés para "Fear Of Missing Out" (Miedo a perderse algo). Estado psicológico de urgencia o ansiedad que lleva a inversores a comprar un activo que sube rápidamente, temiendo perder rentabilidad.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Altcoin</div>
+                        <div class="glossary-def">Cualquier criptomoneda alternativa que no sea Bitcoin. Ejemplos populares incluyen a Ethereum (ETH), Solana (SOL), Cardano (ADA), entre otras miles existentes.</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            
+            <!-- Price Widget -->
+            <div class="widget">
+                <h3 class="widget-title">Mercados Principales</h3>
+                <div class="sidebar-prices" id="sidebarPricesList">
+                    <!-- Dinámico con JS -->
+                    <div style="text-align:center; padding:1rem; color:var(--text-secondary)">Cargando mercado...</div>
+                </div>
+            </div>
+
+            <!-- AD BLOCK: Medium Rectangle Ad (300x250px) -->
+            <div class="widget" style="padding: 0; background: none; border: none;">
+                <div class="adsense-placeholder ads-medium-rectangle" style="margin: 0 auto;">
+                    <div class="ads-text">Anuncio AdSense (300x250)<br>Medium Rectangle Sticky</div>
+                </div>
+            </div>
+
+            <!-- Popular Articles -->
+            <div class="widget">
+                <h3 class="widget-title">Lo más Viral</h3>
+                <div class="popular-posts">
+                    <div class="popular-item">
+                        <span class="popular-number">01</span>
+                        <div class="popular-content">
+                            <h5><a href="que-es-bitcoin.html">¿Podrías jubilarte hoy con solo poseer 0.1 Bitcoin? Los números reales</a></h5>
+                            <span>Hace 2 días • 👁️ 45K vistas</span>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <span class="popular-number">02</span>
+                        <div class="popular-content">
+                            <h5><a href="como-comprar-criptomonedas.html">Guía definitiva: ¿Bitcoin o el Oro en 2026? Analizamos el ganador histórico</a></h5>
+                            <span>Hace 5 días • 👁️ 38K vistas</span>
+                        </div>
+                    </div>
+                    <div class="popular-item">
+                        <span class="popular-number">03</span>
+                        <div class="popular-content">
+                            <h5><a href="categorias.html">Lo que nadie te dice sobre las altcoins baratas de baja capitalización</a></h5>
+                            <span>Hace 1 semana • 👁️ 29K vistas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticky Sidebar Container (Sigue el scroll) -->
+            <div class="sidebar-sticky">
+                
+                <!-- Newsletter Widget -->
+                <div class="widget widget-newsletter">
+                    <h3 class="widget-title">Boletín Exclusivo Crypto</h3>
+                    <p style="font-size:0.85rem; color:var(--text-secondary)">Únete a más de 12,500 inversores y recibe alertas de gemas y oportunidades de mercado antes que nadie de forma gratuita.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte! Revisa tu bandeja de entrada.');">
+                        <input type="email" class="newsletter-input" placeholder="Tu correo electrónico..." required>
+                        <button type="submit" class="btn btn-newsletter">Recibir alertas gratis</button>
+                    </form>
+                </div>
+                
+                <!-- AdSense Auto Ads / Sticky placeholder -->
+                <div class="adsense-placeholder ads-medium-rectangle" style="margin: 0;">
+                    <div class="ads-text">Publicidad Sticky 300x250<br>Máximo CTR lateral</div>
+                </div>
+                
+            </div>
+
+        </aside>
+    </div>
+
+    <!-- DISCLAIMER BAR (Requerido YMYL) -->
+    <section class="disclaimer-bar">
+        <div class="disclaimer-container">
+            <span class="disclaimer-icon">⚠️</span>
+            <p><strong>Descargo de responsabilidad financiera importante:</strong> Las inversiones en criptomonedas e instrumentos financieros son activos de alta volatilidad y riesgo de capital. El contenido proporcionado en CryptoVision Pro tiene carácter únicamente de divulgación educativa e información general. No constituye, bajo ninguna circunstancia, asesoramiento de inversión profesional, recomendación transaccional o consejo legal. Nunca inviertas dinero que no puedas permitirte perder por completo.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo-desc">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v12M12 6C9 6 8 8 8 10s1 4 4 4 4 2 4 4-1 4-4 4"></path>
+                        </svg>
+                    </div>
+                    <span>CryptoVision</span>Pro
+                </a>
+                <p class="footer-desc">El portal en español más confiable y moderno sobre finanzas descentralizadas, educación de inversiones digitales y análisis tecnológico de mercados.</p>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">Secciones</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Página de Inicio</a></li>
+                    <li><a href="categorias.html">Criptomonedas</a></li>
+                    <li><a href="categorias.html">Inversiones</a></li>
+                    <li><a href="categorias.html">Guías y Glosario</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">Información Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="aviso-legal.html">Aviso Legal / Cookies</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="sitemap.xml">Mapa del Sitio XML</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-about">
+                <h4 class="footer-col-title">Comunidad</h4>
+                <p>Síguenos en nuestras redes sociales para recibir notificaciones rápidas y análisis en tiempo real.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"></path></svg></a>
+                    <a href="#" class="social-icon" aria-label="Twitter / X"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 CryptoVision Pro. Todos los derechos reservados. Este sitio contiene anuncios optimizados de Google AdSense.</p>
+            <p>Hecho con ⚡ y optimizado para Core Web Vitals en España y Latam.</p>
+        </div>
+    </footer>
+
+    <!-- COOKIE CONSENT POPUP -->
+    <div class="cookie-consent" id="cookieConsent">
+        <h4 class="cookie-title">🍪 Configuración de Cookies y Privacidad</h4>
+        <p class="cookie-text">Utilizamos cookies de origen y de terceros para analizar el tráfico del sitio, personalizar los contenidos editoriales y optimizar los anuncios publicitarios de <strong>Google AdSense</strong>. Al hacer clic en "Aceptar Todo", consientes su uso de acuerdo con nuestras políticas.</p>
+        <div class="cookie-buttons">
+            <button class="btn-cookie-accept" id="acceptCookies">Aceptar Todo</button>
+            <button class="btn-cookie-decline" id="declineCookies">Rechazar</button>
+        </div>
+    </div>
+
+    <!-- Scripts del Proyecto -->
+    <script src="js/main.js" defer></script>
+    <script src="js/charts.js" defer></script>
+</body>
+</html>
